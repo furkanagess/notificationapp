@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "208315203575",
+    "project_id": "notificationapp-496d8",
+    "storage_bucket": "notificationapp-496d8.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:208315203575:android:f24f43c9bd10787614b8f2",
+        "android_client_info": {
+          "package_name": "com.example.notificationapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "208315203575-q8cs6nrfuq6jsqaaqo9ngo2i2e2t7sml.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBjeOwmtS-zqXj9GmaEDiUoAN5_g32lrBg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "208315203575-q8cs6nrfuq6jsqaaqo9ngo2i2e2t7sml.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "208315203575-674tpuncqdpgt3jqvvh4a9m5cavq45di.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.notificationapp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
