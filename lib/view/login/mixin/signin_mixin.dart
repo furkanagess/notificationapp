@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:notificationapp/constants/app_strings.dart';
 import 'package:notificationapp/provider/firebase_service.dart';
 import 'package:notificationapp/view/home_view.dart';
 import 'package:notificationapp/view/widgets/custom_snackbar.dart';
@@ -15,8 +16,7 @@ mixin SigninMixin<T extends StatefulWidget> on State<T> {
 
     if (email.isEmpty || password.isEmpty) {
       CustomSnackbar.show(
-          context: context,
-          label: "E-posta ve şifre alanları boş bırakılamaz.");
+          context: context, label: AppStrings.cannotEmptyMailAndPassword);
 
       return;
     }
@@ -34,9 +34,7 @@ mixin SigninMixin<T extends StatefulWidget> on State<T> {
       );
     } else {
       CustomSnackbar.show(
-          context: context,
-          label:
-              "Şifre en az 6 karakter olmalı ve yalnızca geçerli mail formatında olmalıdır.");
+          context: context, label: AppStrings.passwordAndMailMust);
     }
   }
 }

@@ -70,7 +70,7 @@ class _SignUpViewState extends State<SignUpView> with SignUpMixin {
                 builder: (context, visibilityProvider, child) {
                   return AuthTextfield(
                     controller: confirmPasswordController,
-                    label: 'Şifre (Tekrar)',
+                    label: AppStrings.passwordAgain,
                     obscureText: !visibilityProvider.isPasswordVisible,
                   );
                 },

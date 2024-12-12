@@ -1,7 +1,8 @@
 class AppStrings {
-  static const String appName = 'Hemify';
+  static const String appName = 'Hermify';
   static const String noTitle = 'Başlık Bulunamadı';
   static const String noBody = 'İçerik Bulunamadı';
+  static const String noMail = "E-posta Bulunamadı";
   static const String noDate = '--/--/---- --:--';
   static const String clearNotifications = 'Bildirimleri Temizle';
   static const String clearNotificationsConfirmation =
@@ -18,5 +19,14 @@ class AppStrings {
   static const String signOut = 'Çıkış Yap';
   static const String email = 'E-posta';
   static const String password = 'Şifre';
+  static const String passwordAgain = 'Şifre (Tekrar)';
   static const String signInWithGoogle = 'Google ile Giriş Yap';
+  static const String cannotEmptyMailAndPassword =
+      'E-posta ve şifre alanları boş bırakılamaz.';
+  static const String passwordAndMailMust =
+      "Şifre en az 6 karakter olmalı ve yalnızca geçerli mail formatında olmalıdır.";
+  static const String passwordsNotMatch =
+      "Şifreler eşleşmiyor. Lütfen şifreleri kontrol edin.";
+  static const String fcmTokenCopied = "FCM Token Kopyalandı";
+  static const String fcmTokenLabel = "FCM Token";
 }

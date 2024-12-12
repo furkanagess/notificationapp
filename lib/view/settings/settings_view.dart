@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:notificationapp/constants/app_colors.dart';
+import 'package:notificationapp/constants/app_strings.dart';
 import 'package:notificationapp/provider/home_view_model.dart';
 import 'package:notificationapp/view/home_view.dart';
-import 'package:notificationapp/view/login/signin_view.dart';
-import 'package:provider/provider.dart';
+import 'package:notificationapp/view/widgets/custom_snackbar.dart';
 
 class SettingsView extends StatefulWidget {
   final HomeViewModel viewModel;
@@ -20,11 +20,11 @@ class _SettingsViewState extends State<SettingsView> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: true,
-        title: const Text("Ayarlar"),
+        title: const Text(AppStrings.settings),
         centerTitle: true,
-        backgroundColor: const Color(0xFF191C24),
+        backgroundColor: AppColors.background,
       ),
-      backgroundColor: const Color(0xFF191C24),
+      backgroundColor: AppColors.background,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),
         child: Column(
@@ -34,11 +34,11 @@ class _SettingsViewState extends State<SettingsView> {
               height: 10,
             ),
             Center(
-              child: Text(widget.viewModel.user?.email ?? "Unknown",
-                  style: const TextStyle(color: Colors.white, fontSize: 20)),
+              child: Text(widget.viewModel.user?.email ?? AppStrings.noMail,
+                  style: const TextStyle(color: AppColors.white, fontSize: 20)),
             ),
             const Divider(
-              color: Colors.white,
+              color: AppColors.white,
             ),
             const SizedBox(
               height: 20,
@@ -48,9 +48,9 @@ class _SettingsViewState extends State<SettingsView> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text(
-                    "FCM Token",
+                    AppStrings.fcmTokenLabel,
                     style: TextStyle(
-                        color: Colors.white,
+                        color: AppColors.white,
                         fontSize: 16,
                         fontWeight: FontWeight.bold),
                   ),
@@ -107,7 +107,7 @@ class _SettingsViewState extends State<SettingsView> {
                     style: ElevatedButton.styleFrom(
                       backgroundColor: AppColors.softRed,
                     ),
-                    child: const Text("Çıkış Yap",
+                    child: const Text(AppStrings.signOut,
                         style: TextStyle(color: AppColors.background)),
                   ),
                 ),
@@ -124,8 +124,9 @@ class _SettingsViewState extends State<SettingsView> {
 
   void _copyToClipboard(BuildContext context, String text) {
     Clipboard.setData(ClipboardData(text: text));
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text("FCM Token kopyalandı!")),
-    );
+    CustomSnackbar.show(
+        context: context,
+        label: AppStrings.fcmTokenCopied,
+        backgroundColor: AppColors.primary);
   }
 }

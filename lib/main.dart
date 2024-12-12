@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:notificationapp/constants/app_strings.dart';
 import 'package:notificationapp/provider/firebase_messaging_background_handler.dart';
 import 'package:notificationapp/provider/home_view_model.dart';
 import 'package:notificationapp/view/home_view.dart';
@@ -28,9 +29,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Hermify',
+      title: AppStrings.appName,
       theme: ThemeData.dark(),
-      home: HomeView(),
+      home: const HomeView(),
     );
   }
 }
