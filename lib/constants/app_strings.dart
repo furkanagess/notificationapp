@@ -6,7 +6,7 @@ class AppStrings {
   static const String noDate = '--/--/---- --:--';
   static const String clearNotifications = 'Bildirimleri Temizle';
   static const String clearNotificationsConfirmation =
-      'Tüm bild"irimleri silmek istediğinize emin misiniz?';
+      'Tüm bildirimleri silmek istediğinize emin misiniz?';
   static const String cancel = 'İptal';
   static const String delete = 'SİL';
   static const String notifications = 'Bildirimler';

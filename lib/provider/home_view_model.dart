@@ -14,6 +14,8 @@ class HomeViewModel extends ChangeNotifier {
   String? _fcmToken;
   List<String> _notifications = [];
   StreamSubscription<RemoteMessage>? _fcmSubscription;
+  Map<String, bool> _topicSubscriptions = {};
+  Map<String, bool> get topicSubscriptions => _topicSubscriptions;
 
   User? get user => _user;
   String? get fcmToken => _fcmToken;
@@ -29,8 +31,52 @@ class HomeViewModel extends ChangeNotifier {
 
   Future<void> initializeMessaging() async {
     _fcmToken = await _firebaseService.getFCMToken();
+    await loadTopicSubscriptions();
     _setupFirebaseMessagingListener();
+    notifyListeners();
   }
+
+  Future<void> loadTopicSubscriptions() async {
+    final prefs = await SharedPreferences.getInstance();
+    _topicSubscriptions = {
+      'bildirimleri_goster': prefs.getBool('bildirimleri_goster') ?? false,
+      'uygulama_bildirimleri': prefs.getBool('uygulama_bildirimleri') ?? false,
+      'duyurular': prefs.getBool('duyurular') ?? false,
+      'portfoy_bildirimleri': prefs.getBool('portfoy_bildirimleri') ?? false,
+      'haber_bildirimleri': prefs.getBool('haber_bildirimleri') ?? false,
+      'model_portfoy': prefs.getBool('model_portfoy') ?? false,
+      'arastirma_raporlari': prefs.getBool('arastirma_raporlari') ?? false,
+      'teknik_oneriler': prefs.getBool('teknik_oneriler') ?? false,
+      'fiyat_bildirimleri': prefs.getBool('fiyat_bildirimleri') ?? false,
+      'emir_bildirimleri': prefs.getBool('emir_bildirimleri') ?? false,
+      'bilanco_bildirimleri': prefs.getBool('bilanco_bildirimleri') ?? false,
+    };
+    notifyListeners();
+  }
+
+  Future<void> toggleTopicSubscription(String topic, bool isSubscribed) async {
+    final prefs = await SharedPreferences.getInstance();
+    _topicSubscriptions[topic] = isSubscribed;
+    await prefs.setBool(topic, isSubscribed);
+
+    if (isSubscribed) {
+      await _firebaseService.subscribeToTopic(topic);
+    } else {
+      await _firebaseService.unsubscribeFromTopic(topic);
+    }
+    notifyListeners();
+    // printSubscribedTopics();
+  }
+
+  // void printSubscribedTopics() {
+  //   final subscribedTopics = _topicSubscriptions.entries
+  //       .where((entry) => entry.value)
+  //       .map((entry) => entry.key)
+  //       .toList();
+
+  //   print(
+  //       "Subscribed Topics: ${subscribedTopics.isNotEmpty ? subscribedTopics : 'None'}");
+  // }
 
   Future<void> signInWithEmail(String email, String password) async {
     _user = await _firebaseService.signInWithEmailAndPassword(email, password);

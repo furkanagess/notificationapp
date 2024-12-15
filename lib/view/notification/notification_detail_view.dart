@@ -94,53 +94,103 @@ class NotificationDetailPage extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 12),
+              // Expanded(
+              //   child: SingleChildScrollView(
+              //     scrollDirection: Axis.horizontal,
+              //     child: SingleChildScrollView(
+              //       scrollDirection: Axis.vertical,
+              //       child: DataTable(
+              //         columnSpacing: 20,
+              //         columns: const [
+              //           DataColumn(
+              //             label: Text(
+              //               'Key',
+              //               style: TextStyle(
+              //                 fontWeight: FontWeight.bold,
+              //                 color: Colors.white,
+              //               ),
+              //             ),
+              //           ),
+              //           DataColumn(
+              //             label: Text(
+              //               'Value',
+              //               style: TextStyle(
+              //                 fontWeight: FontWeight.bold,
+              //                 color: Colors.white,
+              //               ),
+              //             ),
+              //           ),
+              //         ],
+              //         rows: data.entries.map((entry) {
+              //           return DataRow(
+              //             cells: [
+              //               DataCell(
+              //                 Expanded(
+              //                   child: Text(
+              //                     entry.key.toString(),
+              //                     style: const TextStyle(color: Colors.white),
+              //                     overflow: TextOverflow.visible,
+              //                     softWrap: true,
+              //                   ),
+              //                 ),
+              //               ),
+              //               DataCell(
+              //                 Expanded(
+              //                   flex: 2,
+              //                   child: Text(
+              //                     entry.value.toString(),
+              //                     style: const TextStyle(color: Colors.white70),
+              //                     overflow: TextOverflow.visible,
+              //                     softWrap: true,
+              //                   ),
+              //                 ),
+              //               ),
+              //             ],
+              //           );
+              //         }).toList(),
+              //       ),
+              //     ),
+              //   ),
+              // ),
+
               Expanded(
                 child: ListView.builder(
                   itemCount: data.entries.length,
                   itemBuilder: (context, index) {
                     final entry = data.entries.elementAt(index);
-                    return Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 8.0),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            color: AppColors.white.withOpacity(0.2),
-                          ),
-                          borderRadius: BorderRadius.circular(12),
+                    return Card(
+                      shape: RoundedRectangleBorder(
+                        side: BorderSide(
+                          color: AppColors.primary,
                         ),
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              // Key kısmı
-                              Expanded(
-                                flex: 1,
-                                child: Text(
-                                  "${entry.key}:",
-                                  style: const TextStyle(
-                                    color: AppColors.white,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 16,
-                                  ),
-                                ),
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      color: AppColors.softGrey,
+                      margin: const EdgeInsets.symmetric(
+                          vertical: 8.0, horizontal: 4.0),
+                      child: Padding(
+                        padding: const EdgeInsets.all(12.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              entry.key.toString(),
+                              style: const TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16,
                               ),
-                              const SizedBox(
-                                width: 10,
+                            ),
+                            const SizedBox(height: 8),
+                            Text(
+                              entry.value.toString(),
+                              style: const TextStyle(
+                                color: Colors.white70,
+                                fontSize: 16,
                               ),
-                              Expanded(
-                                flex: 2,
-                                child: Text(
-                                  entry.value.toString(),
-                                  style: const TextStyle(
-                                    color: Colors.white70,
-                                    fontSize: 16,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
+                              softWrap: true,
+                            ),
+                          ],
                         ),
                       ),
                     );

@@ -139,4 +139,22 @@ class FirebaseService {
     final prefs = await SharedPreferences.getInstance();
     await prefs.remove(_notificationsKey);
   }
+
+  Future<void> subscribeToTopic(String topic) async {
+    try {
+      await _messaging.subscribeToTopic(topic);
+      print("Subscribed to $topic");
+    } catch (e) {
+      print("Error subscribing to $topic: $e");
+    }
+  }
+
+  Future<void> unsubscribeFromTopic(String topic) async {
+    try {
+      await _messaging.unsubscribeFromTopic(topic);
+      print("Unsubscribed from $topic");
+    } catch (e) {
+      print("Error unsubscribing from $topic: $e");
+    }
+  }
 }
