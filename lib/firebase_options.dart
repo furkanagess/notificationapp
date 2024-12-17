@@ -51,7 +51,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyBjeOwmtS-zqXj9GmaEDiUoAN5_g32lrBg',
-    appId: '1:208315203575:android:17f6c817c171242214b8f2',
+    appId: '1:208315203575:android:e762668322b1af6814b8f2',
     messagingSenderId: '208315203575',
     projectId: 'notificationapp-496d8',
     storageBucket: 'notificationapp-496d8.firebasestorage.app',
@@ -59,11 +59,12 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyBlogjK6FTfJTQuUNReUAzsmOKfm5K7p1U',
-    appId: '1:208315203575:ios:9e3927d02feee75814b8f2',
+    appId: '1:208315203575:ios:8d182228ca59c2d514b8f2',
     messagingSenderId: '208315203575',
     projectId: 'notificationapp-496d8',
     storageBucket: 'notificationapp-496d8.firebasestorage.app',
-    iosClientId: '208315203575-674tpuncqdpgt3jqvvh4a9m5cavq45di.apps.googleusercontent.com',
-    iosBundleId: 'com.example.notificationapp',
+    androidClientId: '208315203575-7b0mbncql3s744p9bafitforfhcn3e69.apps.googleusercontent.com',
+    iosClientId: '208315203575-mpdlfid3m1jeepstqdbbcv5rrvthbgu9.apps.googleusercontent.com',
+    iosBundleId: 'com.snt.notificat',
   );
 }
