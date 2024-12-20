@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:notificationapp/constants/app_colors.dart';
-import 'package:notificationapp/constants/app_strings.dart';
+import 'package:notificationapp/base/constants/app_colors.dart';
+import 'package:notificationapp/base/constants/app_strings.dart';
 import 'package:notificationapp/provider/home_view_model.dart';
 import 'package:notificationapp/view/home_view.dart';
 import 'package:notificationapp/view/settings/mixin/settings_view_mixin.dart';

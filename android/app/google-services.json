@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "208315203575-qi0ufm0fmu4tu845bagnqpbhk9da1sbr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.snt.notificat",
+            "certificate_hash": "188f39381cf69b37ec59023bd999c58651f7dd80"
+          }
+        },
+        {
           "client_id": "208315203575-q8cs6nrfuq6jsqaaqo9ngo2i2e2t7sml.apps.googleusercontent.com",
           "client_type": 3
         }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:notificationapp/constants/app_colors.dart';
+import 'package:notificationapp/base/constants/app_colors.dart';
 
 class CustomSnackbar {
   static void show({

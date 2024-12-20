@@ -1,8 +1,8 @@
 // ignore_for_file: use_build_context_synchronously
 
 import 'package:flutter/material.dart';
-import 'package:notificationapp/constants/app_colors.dart';
-import 'package:notificationapp/constants/app_strings.dart';
+import 'package:notificationapp/base/constants/app_colors.dart';
+import 'package:notificationapp/base/constants/app_strings.dart';
 import 'package:notificationapp/provider/home_view_model.dart';
 import 'package:notificationapp/view/login/mixin/signup_mixin.dart';
 import 'package:notificationapp/view/widgets/auth_textfield.dart';
@@ -20,7 +20,7 @@ class _SignUpViewState extends State<SignUpView> with SignUpMixin {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: const Color(0xFF191C24),
+      backgroundColor: AppColors.background,
       appBar: AppBar(
         centerTitle: true,
         iconTheme: const IconThemeData(color: AppColors.silver),
@@ -28,7 +28,7 @@ class _SignUpViewState extends State<SignUpView> with SignUpMixin {
           AppStrings.signUp,
           style: TextStyle(color: AppColors.silver),
         ),
-        backgroundColor: const Color(0xFF191C24),
+        backgroundColor: AppColors.background,
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),

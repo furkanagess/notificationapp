@@ -1,7 +1,8 @@
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:notificationapp/constants/app_colors.dart';
-import 'package:notificationapp/constants/app_strings.dart';
+import 'package:notificationapp/base/constants/app_colors.dart';
+import 'package:notificationapp/base/constants/app_strings.dart';
 import 'package:notificationapp/provider/home_view_model.dart';
 import 'package:notificationapp/view/login/mixin/signin_mixin.dart';
 import 'package:notificationapp/view/login/signup_view.dart';
@@ -30,11 +31,13 @@ class _SigninViewState extends State<SigninView> with SigninMixin {
             ),
             backgroundColor: AppColors.background,
             body: Padding(
-              padding: const EdgeInsets.all(16.0),
+              padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                child: ListView(
                   children: [
+                    const SizedBox(
+                      height: 50,
+                    ),
                     Image.asset(
                       "assets/images/app_logo_bg.png",
                       height: 200,

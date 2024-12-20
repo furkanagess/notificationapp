@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'dart:convert';
 
 import 'package:intl/intl.dart';
-import 'package:notificationapp/constants/app_colors.dart';
-import 'package:notificationapp/constants/app_strings.dart';
+import 'package:notificationapp/base/constants/app_colors.dart';
+import 'package:notificationapp/base/constants/app_strings.dart';
 
 class NotificationDetailPage extends StatelessWidget {
   final String notification;

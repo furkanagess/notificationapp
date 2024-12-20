@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:notificationapp/constants/app_strings.dart';
+import 'package:notificationapp/base/constants/app_strings.dart';
 import 'package:notificationapp/provider/firebase_service.dart';
 import 'package:notificationapp/view/home_view.dart';
 import 'package:notificationapp/view/widgets/custom_snackbar.dart';

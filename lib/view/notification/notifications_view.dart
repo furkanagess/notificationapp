@@ -2,8 +2,8 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:notificationapp/constants/app_colors.dart';
-import 'package:notificationapp/constants/app_strings.dart';
+import 'package:notificationapp/base/constants/app_colors.dart';
+import 'package:notificationapp/base/constants/app_strings.dart';
 import 'package:notificationapp/provider/home_view_model.dart';
 import 'package:notificationapp/view/notification/notification_detail_view.dart';
 import 'package:notificationapp/view/settings/settings_view.dart';

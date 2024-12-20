@@ -58,7 +58,7 @@ class FirebaseService {
 
       final user = userCredential.user;
       if (!_validateEmail(user?.email)) {
-        await user?.delete(); // Geçersiz kullanıcıyı sil
+        await user?.delete();
         throw Exception("Invalid email domain");
       }
 
@@ -106,7 +106,8 @@ class FirebaseService {
   bool _validateEmail(String? email) {
     if (email == null) return false;
     return email.endsWith('@sntyazilim.com.tr') ||
-        email.endsWith('@sntakademi.com.tr');
+        email.endsWith('@sntakademi.com.tr') ||
+        email.endsWith('@infoyatirim.com.tr');
   }
 
   static const _notificationsKey = 'cached_notifications';
