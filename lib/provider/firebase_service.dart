@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class FirebaseService {
@@ -50,13 +51,35 @@ class FirebaseService {
     }
   }
 
+  final GoogleSignIn _googleSignIn = GoogleSignIn();
+
   Future<User?> signInWithGoogle({bool isSignUp = false}) async {
     try {
-      GoogleAuthProvider googleProvider = GoogleAuthProvider();
+      // Önceki Google oturumunu kapat
+      await _googleSignIn.signOut();
+
+      // Google Sign-In işlemini başlat
+      final GoogleSignInAccount? googleUser = await _googleSignIn.signIn();
+
+      if (googleUser == null) {
+        print("Google Sign-In cancelled by user");
+        return null;
+      }
+
+      final GoogleSignInAuthentication googleAuth =
+          await googleUser.authentication;
+
+      final OAuthCredential credential = GoogleAuthProvider.credential(
+        accessToken: googleAuth.accessToken,
+        idToken: googleAuth.idToken,
+      );
+
+      // Firebase ile kimlik doğrulama
       final UserCredential userCredential =
-          await _auth.signInWithProvider(googleProvider);
+          await _auth.signInWithCredential(credential);
 
       final user = userCredential.user;
+
       if (!_validateEmail(user?.email)) {
         await user?.delete();
         throw Exception("Invalid email domain");
