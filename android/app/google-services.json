@@ -14,11 +14,11 @@
       },
       "oauth_client": [
         {
-          "client_id": "208315203575-qi0ufm0fmu4tu845bagnqpbhk9da1sbr.apps.googleusercontent.com",
+          "client_id": "208315203575-8gpcn5gs91d1d1bprt8lmlusonnp4jnc.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.snt.notificat",
-            "certificate_hash": "188f39381cf69b37ec59023bd999c58651f7dd80"
+            "certificate_hash": "53be941c833ff5ec4c67dec8570fc1ab218a9429"
           }
         },
         {

@@ -54,6 +54,14 @@ class HomeViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
+  Future<void> checkUserSession() async {
+    _user = _firebaseService.getCurrentUser();
+    if (_user != null) {
+      await initializeMessaging();
+      await loadCachedNotifications();
+    }
+  }
+
   Future<void> toggleTopicSubscription(String topic, bool isSubscribed) async {
     final prefs = await SharedPreferences.getInstance();
     _topicSubscriptions[topic] = isSubscribed;
